@@ -1,0 +1,12 @@
+package sk.Army;
+
+public class AdaptableSoldier extends Soldier {
+    public AdaptableSoldier(String name, Category category) {
+        super(name, Category.ADAPTABLE);
+    }
+
+    @Override
+    public void specialAbility() {
+        System.out.println(getName() + " is adaptable in every situation and uses a flamethrower.");
+    }
+}
