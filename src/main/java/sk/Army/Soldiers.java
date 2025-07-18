@@ -17,7 +17,7 @@ abstract class Soldier {
         return category;
     }
 
-    public abstract void specialAbility ();
+    public abstract String specialAbility ();
 
     @Override
     public String toString() {

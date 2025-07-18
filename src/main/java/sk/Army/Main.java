@@ -36,22 +36,15 @@ public class Main {
             switch (command) {
                 case "offensive":
                     System.out.println("Executing OFFENSIVE strategy...");
-                    soldiers.stream().filter(s ->
-                                    s.getCategory() == Category.OFFENSIVE ||
-                                            s.getCategory() == Category.ADAPTABLE)
-                            .forEach(s -> {
-                                System.out.println(s.getName() + " takes defensive position!");
-                                s.specialAbility();
-                            });
+                    soldiers.stream()
+                            .filter(s -> s.getCategory() == Category.OFFENSIVE || s.getCategory() == Category.ADAPTABLE)
+                            .forEach(s -> System.out.println(s + s.specialAbility()));
+                    break;
                 case "defensive":
                     System.out.println("Executing DEFENSIVE strategy...");
                     soldiers.stream()
-                            .filter(s -> s.getCategory() == Category.DEFENSIVE ||
-                                    s.getCategory() == Category.ADAPTABLE)
-                            .forEach(s -> {
-                                System.out.println(s.getName() + " takes defensive position!");
-                                s.specialAbility();
-                            });
+                            .filter(s -> s.getCategory() == Category.DEFENSIVE || s.getCategory() == Category.ADAPTABLE)
+                            .forEach(s -> System.out.println(s + s.specialAbility()));
                     break;
                 default:
                     System.out.println("Unknown command.... ");

@@ -6,7 +6,7 @@ public class DefensiveSoldier extends Soldier {
     }
 
     @Override
-    public void specialAbility() {
+    public String specialAbility() {
         System.out.println(getName() + " is using a shield.");
-    }
+    return "";}
 }

@@ -6,7 +6,8 @@ public class OffensiveSoldier extends Soldier {
     }
 
     @Override
-    public void specialAbility() {
+    public String specialAbility() {
         System.out.println(getName() + " is throwing grenades.");
+        return "";
     }
 }

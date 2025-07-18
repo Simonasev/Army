@@ -6,7 +6,8 @@ public class AdaptableSoldier extends Soldier {
     }
 
     @Override
-    public void specialAbility() {
+    public String specialAbility() {
         System.out.println(getName() + " is adaptable in every situation and uses a flamethrower.");
+    return "";
     }
 }
