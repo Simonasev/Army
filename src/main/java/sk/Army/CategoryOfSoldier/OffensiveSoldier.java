@@ -1,7 +1,5 @@
 package sk.Army.CategoryOfSoldier;
 
-import sk.Army.Soldier;
-
 public class OffensiveSoldier extends Soldier {
     public OffensiveSoldier(String name) {
         super(name, Category.OFFENSIVE);

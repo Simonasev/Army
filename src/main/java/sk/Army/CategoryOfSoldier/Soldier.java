@@ -1,6 +1,4 @@
-package sk.Army;
-
-import sk.Army.CategoryOfSoldier.Category;
+package sk.Army.CategoryOfSoldier;
 
 public abstract class Soldier {
     private final String name;

@@ -1,7 +1,7 @@
 package sk.Army.Command;
 
 import sk.Army.CategoryOfSoldier.Category;
-import sk.Army.Soldier;
+import sk.Army.CategoryOfSoldier.Soldier;
 
 public class OffensiveCommand implements Command{
     @Override
