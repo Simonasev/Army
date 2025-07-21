@@ -1,8 +1,10 @@
 package sk.Army;
 
-abstract class Soldier {
-    private String name;
-    private Category category;
+import sk.Army.CategoryOfSoldier.Category;
+
+public abstract class Soldier {
+    private final String name;
+    private final Category category;
 
     public Soldier(String name, Category category) {
         this.name = name;
@@ -19,9 +21,8 @@ abstract class Soldier {
 
     public abstract String specialAbility ();
 
-    @Override
-    public String toString() {
-        return name +  " (" + category + ")";
+    public String getReport() {
+        return getName()  + " ( " + category + " ) ";
     }
 
 }

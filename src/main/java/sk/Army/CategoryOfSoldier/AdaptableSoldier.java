@@ -1,7 +1,9 @@
-package sk.Army;
+package sk.Army.CategoryOfSoldier;
+
+import sk.Army.Soldier;
 
 public class AdaptableSoldier extends Soldier {
-    public AdaptableSoldier(String name, Category category) {
+    public AdaptableSoldier(String name) {
         super(name, Category.ADAPTABLE);
     }
 

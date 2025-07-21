@@ -1,30 +1,37 @@
 package sk.Army;
 
+import sk.Army.CategoryOfSoldier.*;
+import sk.Army.Command.Command;
+import sk.Army.Command.DefensiveCommand;
+import sk.Army.Command.OffensiveCommand;
+
 import java.util.List;
 import java.util.Scanner;
+
 
 public class Main {
     public static void main(String[] args) {
 
         List<Soldier> soldiers = List.of(
-                new AdaptableSoldier("Anna", Category.ADAPTABLE),
-                new AdaptableSoldier("Miro", Category.ADAPTABLE),
-                new AdaptableSoldier("Rasto", Category.ADAPTABLE),
-                new DefensiveSoldier("Peter", Category.DEFENSIVE),
-                new DefensiveSoldier("Michal", Category.DEFENSIVE),
-                new DefensiveSoldier("Vlado", Category.DEFENSIVE),
-                new OffensiveSoldier("Naty", Category.OFFENSIVE),
-                new OffensiveSoldier("Matteo", Category.OFFENSIVE),
-                new OffensiveSoldier("Kika", Category.OFFENSIVE)
+                new AdaptableSoldier("Anna"),
+                new AdaptableSoldier("Miro"),
+                new AdaptableSoldier("Rasto"),
+                new DefensiveSoldier("Peter"),
+                new DefensiveSoldier("Michal"),
+                new DefensiveSoldier("Vlado"),
+                new OffensiveSoldier("Naty"),
+                new OffensiveSoldier("Matteo"),
+                new OffensiveSoldier("Kika")
         );
 
         System.out.println("====== ARMY IS READY ======");
-        soldiers.forEach(s -> System.out.println(s + " is here."));
+        soldiers.forEach(s -> System.out.println(s.getReport() + " is here."));
         System.out.println();
 
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
+            System.out.println();
             System.out.println("Write command offensive, defensive or quit: ");
             String command = scanner.nextLine().trim().toLowerCase();
 
@@ -33,23 +40,23 @@ public class Main {
                 break;
             }
 
-            switch (command) {
-                case "offensive":
-                    System.out.println("Executing OFFENSIVE strategy...");
-                    soldiers.stream()
-                            .filter(s -> s.getCategory() == Category.OFFENSIVE || s.getCategory() == Category.ADAPTABLE)
-                            .forEach(s -> System.out.println(s + s.specialAbility()));
-                    break;
-                case "defensive":
-                    System.out.println("Executing DEFENSIVE strategy...");
-                    soldiers.stream()
-                            .filter(s -> s.getCategory() == Category.DEFENSIVE || s.getCategory() == Category.ADAPTABLE)
-                            .forEach(s -> System.out.println(s + s.specialAbility()));
-                    break;
-                default:
-                    System.out.println("Unknown command.... ");
+            Command cmd = null;
 
+                switch (command) {
+                    case "offensive":
+                        cmd = new OffensiveCommand();
+                        break;
+                    case "defensive":
+                        cmd = new DefensiveCommand();
+                        break;
+                    default:
+                        System.out.println("Unknown command!");
+                        continue;
+                }
+
+                for (Soldier s : soldiers) {
+                    cmd.execute(s);
+                }
             }
         }
     }
-}

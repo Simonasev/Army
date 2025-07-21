@@ -1,4 +1,4 @@
-package sk.Army;
+package sk.Army.CategoryOfSoldier;
 
 public enum Category {
     OFFENSIVE,
